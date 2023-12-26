@@ -1,0 +1,112 @@
+Page: **Home**
+ - Navbar
+ - Hero Header Section: Modern and engaging hero section with a search form for finding flights.
+ - Feature Section: Highlight the ease of booking through SkyNET with quick booking features.
+ - Features List Section: Showcase multiple features such as price alerts, comparison tools, and flexible date options.
+ - Benefits Section: Illustrate the benefits of using SkyNET, like exclusive deals and 24/7 customer service.
+ - CTA Section: Call-to-action for users to sign up for membership for additional discounts.
+ - Testimonial Section: Display customer testimonials to build trust and credibility.
+ - Stats Section: Present statistics showing the number of flights, destinations, and happy customers.
+ - FAQ Section: Answer common questions users might have about booking flights on SkyNET.
+ - Contact Section: Provide contact information and encourage users to get in touch with queries.
+ - Footer
+
+Sub-pages: Flight Search, Authentication page, Special Deals, Travel Guide, Details Confirmation page, Payment page, About Us
+
+
+Page: **Flight Search**
+ - Navbar
+ - Header Section: A concise header with the page title "Flight Search" and a brief description.
+ - Feature Section: Include a dynamic flight search form allowing users to input their travel details.
+ - FAQ Section: A section dedicated to answering common questions related to flight searches.
+ - Courses List Section: Present a selection of recommended or popular flights as courses for users to browse.
+ - Testimonial Section: Feature testimonials from users about their booking experience with SkyNET.
+ - Benefits Section: Highlight the advantages of booking with SkyNET, such as no booking fees and price match guarantee.
+ - CTA Section: A call-to-action encouraging users to book their flight now or contact customer support for assistance.
+ - Logo List Section: Show airline partners to reassure users of the wide selection of flights available.
+ - Footer
+
+Page: **Authentication page**
+ - Navbar
+ - Header Section: A clean header section indicating the purpose of the page: "Login or Register"
+ - Application Form Section: Include a form for users to log in to their existing account with fields for email and password.
+ - Application Form Section: Adjacent to the login form, include a registration form for new users with fields for name, email, password, and password confirmation.
+ - CTA Section: Call-to-action encouraging new users to register and explaining the benefits of creating an account.
+ - FAQ Section: Provide answers to common questions regarding account creation, password recovery, and privacy.
+ - Testimonial Section: Include testimonials from users about the benefits of having an account with SkyNET.
+ - Feature Section: Highlight security features like SSL encryption and two-factor authentication for user peace of mind.
+ - Early Access Section: Offer an option for users to sign up for early access to special deals by creating an account.
+ - Footer
+
+Page: **Special Deals**
+ - Navbar
+ - Header Section: Introduce the Special Deals page with an eye-catching header that promotes the latest discounts and offers.
+ - Ecommerce Products List Section: Display a curated list of special flight deals with an option for users to filter by destination, price, or airline.
+ - CTA Section: Encourage users to book now to take advantage of time-sensitive deals with a strong call-to-action.
+ - Testimonial Section: Show positive customer experiences with special deals to build trust and encourage bookings.
+ - FAQ Section: Provide answers to frequently asked questions specifically about special deals and how to claim them.
+ - Ecommerce Product Section: Feature a standout deal or limited-time offer in greater detail, including benefits and exclusivity.
+ - Benefits Section: Highlight the benefits of booking through the Special Deals page, such as cost savings and bonus rewards.
+ - Early Access Section: Offer users the opportunity to sign up for early access to upcoming deals and exclusive offers.
+ - Contact Form Section: Include a form for users to reach out for more information or assistance with booking special deals.
+ - Footer
+
+Page: **Travel Guide**
+ - Navbar
+ - Header Section: Introduce the Travel Guide with an engaging header and brief description.
+ - Courses List Section: Display a list of featured travel guides or articles for popular destinations.
+ - Feature Section: Highlight a special travel tip or advice for savvy travelers.
+ - FAQ Section: Provide answers to frequently asked questions about travel planning and tips.
+ - Locations Section: Showcase various destinations with beautiful imagery and brief overviews.
+ - Gallery Section: Display a gallery of travel photos from various destinations featured in guides.
+ - CTA Section: Encourage users to sign up for personalized travel guides and updates.
+ - Footer
+
+Sub-pages: Destination Details
+
+
+Page: **Destination Details**
+ - Navbar
+ - Portfolio Item Header Section: Feature a captivating image of the destination with the name and a short tagline.
+ - Portfolio Item Body Section: Provide an engaging description of the destination, including highlights and attractions.
+ - FAQ Section: Answer frequently asked questions specific to the destination.
+ - Gallery Section: Showcase a gallery of images highlighting various points of interest at the destination.
+ - Locations Section: Detail significant locations within the destination, such as airports, landmarks, etc.
+ - Benefits Section: Explain the benefits of visiting this particular destination with SkyNET.
+ - Testimonial Section: Include testimonials from customers who have previously visited the destination.
+ - CTA Section: A call-to-action encouraging users to proceed with booking their trip to this destination.
+ - Footer
+
+Page: **Details Confirmation page**
+ - Navbar
+ - Header Section: A clear, concise header that reaffirms the user's flight selection and booking details.
+ - Feature Section: Summarize the flight, passenger, and payment information for one last review before confirmation.
+ - CTA Section: A final confirmation button for the user to complete their booking.
+ - Testimonial Section: Include testimonials to reassure the user of their choice and the service quality.
+ - FAQ Section: Provide a mini FAQ for common last-minute questions regarding ticket policies, changes, and cancellations.
+ - Contact Section: Offer an easy way to contact customer support in case the user needs to make immediate changes.
+ - Footer
+
+Page: **Payment page**
+ - Navbar
+ - Header Section: A straightforward header that clearly indicates the user is on the Payment page.
+ - Course Item Header Section: This would be repurposed to show a summary of the flight details selected by the user, including departure and arrival times, destinations, and class.
+ - Application Form Section: A secure payment form section where users can input their payment details, including credit card information, billing address, etc.
+ - Pricing Comparison Section: This section could be used to offer additional services or upgrades, allowing users to compare the benefits and costs before making a selection.
+ - Testimonial Section: A section to reassure the user by displaying positive feedback from other customers who have successfully booked flights.
+ - CTA Section: A final call-to-action to review the details and confirm the payment, with a clear 'Pay Now' button.
+ - FAQ Section: A section to address common payment-related questions or concerns users may have, such as security and refund policies.
+ - Footer
+
+Page: **About Us**
+ - Navbar
+ - Header Section: An engaging header with the title "About Us" and a brief introduction to SkyNET.
+ - About Section: Detailed narrative about SkyNET's history, mission, vision, and core values.
+ - Stats Section: Display key achievements, number of users, flights offered, and more in a visually appealing format.
+ - Team Section: Introduce the team behind SkyNET with photos and bios.
+ - Timeline Section: Illustrate the company's growth and milestones over the years.
+ - Award Logos List Section: Showcase any industry awards or recognitions that SkyNET has received.
+ - Client Logos List Section: Feature a selection of prominent clients or partners to build credibility.
+ - Testimonial Section: Include testimonials from customers and partners to reinforce trust.
+ - CTA Section: Encourage visitors to get in touch or learn more about the services offered with a strong call-to-action.
+ - Footer
