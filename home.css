@@ -63,6 +63,9 @@ body{
     justify-content: space-between;
     /* border-bottom: 1px solid #00fff7 */
 }
+.navbar a{
+    text-decoration: none;
+}
 .navbar:hover{
     border-color: rgb(0, 75, 151);
     background-color:  #0a212e;
@@ -182,6 +185,7 @@ body{
     width: fit-content;
 }
 .banner-1 #search{
+    text-decoration: none;
     background: linear-gradient(#00172d,rgb(0, 32, 80), rgb(0, 7, 71)    );
     color: white;
     margin: 10px;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Flights</title>
+    <script src="https://kit.fontawesome.com/0a9fc1dfce.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href = "index.html"><h3 id="navbar-logo"><span id="sky">Sky</span><span id="net">NET</span><span id="dotcom">.com</span></h3></a>
+        <ul class = "navbar-elements">
+            <li>Book Now</li>
+            <li>Destinations</li>
+            <li>Deals</li>
+            <li>More <img style="width: 10px;"src="down-arrow.png"></li>
+            <li><button id="loginbtn">Login</button></li>
+            <li><button id="signupbtn">Sign-up</button></li>
+        </ul>
+    </nav>
+    <div class="search-area">
+        <div class="trip">
+            <h1 id="h1">One Way - Trip</h1>
+            <h1 id="h2">Round - Trip</h1>
+        </div>
+        <div class="source-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text"id="source-feild" placeholder="Enter Departure City">
+        </div>
+        <div class="source-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text"id="destination-feild" placeholder="Enter Arrival City">
+        </div>
+        <div class="departure-return">
+        <div class="source-box" id="dep">
+            <input type = "date"id="departure-date" placeholder="Select Departure Date">
+        </div>
+        <div class="source-box" id="return">
+            <input type = "date"id="return-date" placeholder="Select Return Date">
+        </div>
+        </div>
+        <div class="source-box" id="passengers">
+            <i class="fa-solid fa-person"></i>
+            <input type="number" id="passenger-count" placeholder="Enter Passengers count">
+        </div>
+        <div class="submit">
+            <div class="promo-code">
+                <i class="fa-solid fa-tags"></i>
+                <input type = "text"id="promo" placeholder="Promo code">
+            </div>
+            <button id="search-submit">Take-off</button>
+            </div>
+    </div>
+    <footer class="footer-home">
+        <h3 id="footerlogo"><b>SkyNET</b></h3>
+        <ul class="footer-list">
+            <li>Book Now</li>
+            <li>Special offers</li>
+            <li>Destinations</li>
+            <li>Customer Support</li>
+            <li>About Us</li>
+        </ul>
+        <div class="footer-div">
+            <p>© 2023 SkyNET. All rights reserved.</p>
+            <p style="text-decoration: underline;">Privacy Policy</p>
+        </div>
+    </footer>
+</body>
+</html>

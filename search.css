@@ -1,0 +1,119 @@
+.search-area{
+    background-color: rgb(1, 6, 48);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    padding: 100px;
+    
+}
+.trip{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    padding: 10px;
+    font-size: smaller;
+}
+.search-area h1{
+    color: white;
+    
+}
+.search-area #h2{
+    background: linear-gradient(purple, rgb(39, 1, 39));
+    border: 1px solid rgb(234, 0, 255);
+    padding: 10px;
+    border-radius: 7px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.search-area #h1:hover{
+    background: linear-gradient(purple, rgb(39, 1, 39));
+    border: 1px solid rgb(234, 0, 255);
+    padding: 10px;
+    border-radius: 7px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px groove rgb(202, 0, 202);
+    background: linear-gradient(purple, rgb(39, 1, 39));
+}
+.search-area #h2:hover{
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px groove rgb(202, 0, 202);
+    background: linear-gradient(purple, rgb(39, 1, 39));
+}
+.source-box{
+    border: 2px solid rgb(0, 170, 255);
+    background-color: white;
+    width: 500px;
+    height: 10px;
+    border-radius: 60px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    margin: 10px
+}
+#dep, #return{
+    width: 150px;
+}
+input{
+    border: none;
+    font-size: larger;
+}
+input:hover{
+    cursor:auto;
+}
+input:focus{
+    outline: none;
+}
+.departure-return{
+    width: 500px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    justify-content: left;
+    padding-right: 80px;
+}
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 550px;
+    padding: 25px;
+    margin: 10px;
+}
+.promo-code{
+    border: 2px solid rgb(0, 170, 255);
+    background-color: white;
+    width: 200px;
+    border-radius: 60px;
+    padding: 10px;
+    padding-left: 20px;
+    margin: 5px;
+}
+#promo{
+    width: 150px;
+    gap: 10px;
+}
+#search-submit{
+    background-color:#102B3F  ;
+    border: 2px solid rgb(0, 149, 255);
+    color: rgb(198, 220, 243);
+    letter-spacing: 3px;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+}
+#search-submit:hover{
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.1s;
+    border:3px solid aqua;
+    font-size: medium;
+}
