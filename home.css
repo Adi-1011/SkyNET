@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0%;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+}
+@font-face {
+    font-family: brolink;
+    src: url(Brolink.otf);
+}
+@font-face {
+    font-family: hyperhelix;
+    src: url(hyper-helix.otf);
+}
+@font-face {
+    font-family: bruno;
+    src: url(BrunoAceSC-Regular.ttf);
+}
+@font-face {
+    font-family: changa;
+    src: url(Changa-Bold.ttf);
+}
+body, html{
+    background-color: #DCF6F3;
+    width:100%;
+    height: 100%;
+}
+.navbar{
+    font-family:brolink;
+    font-size: small;
+    padding: 20px;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-list{
+    color: #003260;
+    text-align: center;
+    padding: 10px;
+    padding-right: 0px;
+    width: 60%; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-evenly;
+    letter-spacing: 2px;
+}
+.navbar-list li{
+    text-align: center;
+}
+.navbar-list li:hover{
+    background-color: #33918C;
+}
+#login:hover{
+    background-color: aqua;
+}
+.navbar-list a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding:10px;
+    border-radius: 5px;
+    width: 130px;
+    height: 20px;
+    padding-top: 18px;
+}
+.navbar-list #login{
+    background-color: #003260;
+}
+.navbar-list #signin{
+    background-color: #33918C;
+}
+.logo-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -0.5;
+    width: 450px;
+}
+#logo{
+    width: 200px;
+    padding-left: 65px;
+    z-index: 1;
+}
+.plane-image{
+    position: absolute;
+    right: 0;
+    width: 55%;
+    bottom: 0;
+    box-sizing: border-box;
+}
+.hero-content{
+    color: #003260;
+    font-family: brolink;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    flex-direction: column;
+    padding: 20px;
+    width: 590px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%) ;
+    margin-left: 60px;
+    /* height: 300px; */
+}
+.hero-content h1{
+    font-size: 90px;
+    font-weight: lighter;
+    letter-spacing: 5px;
+}
+.hero-content h3{
+
+    color: #33918C;
+    font-size: 60px;
+    font-weight: lighter;
+    letter-spacing: 5px;
+
+}
+.hero-content span{
+    color: #003260;
+    font-family: changa;
+    font-size: 66px;
+    font-weight: lighter;
+}
+#questionmark{
+    font-family: brolink;
+}
+.hero-content p{
+    font-family: hyperhelix;
+    letter-spacing: 2px;
+    font-size: medium;
+}
+.hero-content a{
+    margin-top: 30px;
+    font-size: large;
+    font-family: changa;
+    background-color: #33918C;
+    color:#DCF6F3;
+    padding: 13px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: fit-content;
+    text-decoration: none;
+    border-radius: 10px;
+    letter-spacing: 2px;
+}
