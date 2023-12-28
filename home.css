@@ -150,3 +150,38 @@ body, html{
     border-radius: 10px;
     letter-spacing: 2px;
 }
+
+.footer-home{
+    color: #0a212e;
+    background: linear-gradient(#DCF6F3 , #33918C);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all ease-in-out 2s;
+}
+.footer-home:hover{
+    background: linear-gradient(#0a212e , #000607);
+    background-position: 100px;
+}
+.footer-list{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    width: 70%;
+    font-size: 10px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    list-style-type: none;
+    border-bottom: 1px solid #0a212e;
+    padding-bottom: 50px;
+    justify-content: space-between;
+}
+.footer-div{
+    
+    font-size: 10px;
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+}
