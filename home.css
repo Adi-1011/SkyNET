@@ -1,11 +1,8 @@
 *{
     margin: 0;
-    padding: 0%;
+    padding: 0;
 }
-a{
-    text-decoration: none;
-    text-align: center;
-}
+
 @font-face {
     font-family: brolink;
     src: url(Brolink.otf);
@@ -27,53 +24,65 @@ body, html{
     width:100%;
     height: 100%;
 }
+*{
+    margin: 0;
+    padding: 0;
+}
+body, html{
+background-color: #DCF6F3;
+width:100%;
+height: 100%;
+}
 .navbar{
-    font-family:brolink;
-    font-size: small;
-    padding: 20px;
-    display: flex;
+font-family:brolink;
+font-size: small;
+padding: 20px;
+display: flex;
 
-    align-items: center;
-    justify-content: space-between;
+align-items: center;
+justify-content: space-between;
 }
 .navbar-list{
-    color: #003260;
-    text-align: center;
-    padding: 10px;
-    padding-right: 0px;
-    width: 60%; 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style-type: none;
-    align-items: center;
-    justify-content: space-evenly;
-    letter-spacing: 2px;
+color: #003260;
+text-align: center;
+padding: 10px;
+padding-right: 0px;
+width: 60%; 
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+list-style-type: none;
+align-items: center;
+justify-content: space-evenly;
+letter-spacing: 2px;
 }
 .navbar-list li{
-    text-align: center;
+text-align: center;
+text-align: center;
 }
-.navbar-list li:hover{
-    background-color: #33918C;
+.link-list{
+    color:#0a212e;
 }
 #login:hover{
-    background-color: aqua;
+background-color: aqua;
 }
-.navbar-list a{
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    padding:10px;
-    border-radius: 5px;
-    width: 130px;
-    height: 20px;
-    padding-top: 18px;
+.navbar-list a {
+text-decoration: none;
+text-align: center;
+padding:10px;
+padding-top: 10px;
+border-radius: 5px;
+width: 130px;
+height: 20px;
+padding-top: 18px;
 }
 .navbar-list #login{
-    background-color: #003260;
+background-color: #003260;
+color: white;
 }
 .navbar-list #signin{
-    background-color: #33918C;
+background-color: #33918C;
+color: white;
 }
 .logo-bg{
     position: absolute;
@@ -92,7 +101,7 @@ body, html{
     right: 0;
     width: 55%;
     bottom: 0;
-    box-sizing: border-box;
+    transition: transform ease-in-out 1s;
 }
 .hero-content{
     color: #003260;
@@ -110,9 +119,11 @@ body, html{
     /* height: 300px; */
 }
 .hero-content h1{
+    MARGIN-TOP: 50PX;
     font-size: 90px;
     font-weight: lighter;
     letter-spacing: 5px;
+    line-height: 0.3;
 }
 .hero-content h3{
 
@@ -149,8 +160,14 @@ body, html{
     text-decoration: none;
     border-radius: 10px;
     letter-spacing: 2px;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
 }
-
+#book:hover{
+    padding-left:25px ;
+    padding-right: 25px;
+    background-color: #1e5653;
+}
 .footer-home{
     color: #0a212e;
     background: linear-gradient(#DCF6F3 , #33918C);
@@ -158,10 +175,6 @@ body, html{
     flex-direction: column;
     align-items: center;
     transition: all ease-in-out 2s;
-}
-.footer-home:hover{
-    background: linear-gradient(#0a212e , #000607);
-    background-position: 100px;
 }
 .footer-list{
     padding-left: 50px;

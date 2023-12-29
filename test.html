@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body, html{
+    background-color: #DCF6F3;
+    width:100%;
+    height: 100%;
+}
+        .navbar{
+    font-family:brolink;
+    font-size: small;
+    padding: 20px;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-list{
+    color: #003260;
+    text-align: center;
+    padding: 10px;
+    padding-right: 0px;
+    width: 60%; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-evenly;
+    letter-spacing: 2px;
+}
+.navbar-list li{
+    text-align: center;
+}
+.navbar-list li:hover{
+    background-color: #33918C;
+}
+#login:hover{
+    background-color: aqua;
+}
+.navbar-list a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding:10px;
+    border-radius: 5px;
+    width: 130px;
+    height: 20px;
+    padding-top: 18px;
+}
+.navbar-list #login{
+    background-color: #003260;
+}
+.navbar-list #signin{
+    background-color: #33918C;
+}
+.logo-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -0.5;
+    width: 450px;
+}
+#logo{
+    width: 200px;
+    padding-left: 65px;
+    z-index: 1;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="logo-bg.png" alt="" class="logo-bg">
+        <img src="SkyNET.png" alt="SkyNET" id="logo">
+        <ul class="navbar-list">
+            <li>SEARCH</li>
+            <li>DESTINATIONS</li>
+            <li>DEALS</li>
+            <li><a href="search.css">SEARCH</a></li>
+            <a href="login.html" id="login">LOGIN</a>
+            <a href="signin.html" id="signin">SIGN-IN</a>
+        </ul>
+    </nav>
+</body>
+</html>
