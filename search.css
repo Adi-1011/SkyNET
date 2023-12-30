@@ -9,49 +9,49 @@
     
 }
 .trip{
+    font-family: brolink;
     display:flex;
     align-items: center;
     justify-content: space-between;
     width: 500px;
     padding: 10px;
-    font-size: smaller;
+    font-size: x-small;
 }
 .search-area h1{
     color: white;
-    
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .search-area #h2{
-    background: linear-gradient(purple, rgb(39, 1, 39));
-    border: 1px solid rgb(234, 0, 255);
+    background: linear-gradient(rgb(0, 107, 128), rgb(1, 209, 209));
+    border:#04d9f1 2px solid;
     padding: 10px;
     border-radius: 7px;
     transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .search-area #h1:hover{
-    background: linear-gradient(purple, rgb(39, 1, 39));
-    border: 1px solid rgb(234, 0, 255);
+    background: linear-gradient(rgb(0, 107, 128), rgb(1, 209, 209));
+    border:#04d9f1 2px solid;
     padding: 10px;
     border-radius: 7px;
-    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    
     border-radius: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    border: 2px groove rgb(202, 0, 202);
-    background: linear-gradient(purple, rgb(39, 1, 39));
+
 }
 .search-area #h2:hover{
     border-radius: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    border: 2px groove rgb(202, 0, 202);
-    background: linear-gradient(purple, rgb(39, 1, 39));
+    background: linear-gradient(rgb(0, 107, 128), rgb(1, 209, 209));
+    border:#04d9f1 2px solid;
 }
 .source-box{
     border: 2px solid rgb(0, 170, 255);
-    background-color: white;
+    background-color: #102B3F;
     width: 500px;
     height: 10px;
-    border-radius: 60px;
+    border-radius: 8px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -63,6 +63,8 @@
     width: 150px;
 }
 input{
+    background-color: #102B3F;
+    color: aliceblue;
     border: none;
     font-size: larger;
 }
@@ -71,6 +73,9 @@ input:hover{
 }
 input:focus{
     outline: none;
+}
+input::placeholder{
+    color: rgb(158, 179, 198);
 }
 .departure-return{
     width: 500px;
@@ -82,6 +87,9 @@ input:focus{
     justify-content: left;
     padding-right: 80px;
 }
+i{
+    color:rgb(109, 207, 223);
+}
 .submit{
     display: flex;
     align-items: center;
@@ -92,7 +100,6 @@ input:focus{
 }
 .promo-code{
     border: 2px solid rgb(0, 170, 255);
-    background-color: white;
     width: 200px;
     border-radius: 60px;
     padding: 10px;
@@ -104,16 +111,27 @@ input:focus{
     gap: 10px;
 }
 #search-submit{
-    background-color:#102B3F  ;
-    border: 2px solid rgb(0, 149, 255);
-    color: rgb(198, 220, 243);
+    font-family: hyperhelix;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#0a8aa1;
+    border: 2px solid rgb(1, 168, 154);
+    color: rgb(255, 255, 255);
     letter-spacing: 3px;
     width: 150px;
     height: 40px;
     border-radius: 10px;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.1s;
 }
 #search-submit:hover{
-    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.1s;
-    border:3px solid aqua;
-    font-size: medium;
+    
+    border:1.5px solid aqua;
+    
+}
+#search-submit:active{
+    background-color: #14606c;
+    font-size: 11.5px;
 }

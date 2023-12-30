@@ -39,6 +39,7 @@ font-size: small;
 padding: 20px;
 display: flex;
 
+
 align-items: center;
 justify-content: space-between;
 }
@@ -85,6 +86,7 @@ background-color: #33918C;
 color: white;
 }
 .logo-bg{
+    
     position: absolute;
     top: 0;
     left: 0;
@@ -161,28 +163,37 @@ color: white;
     border-radius: 10px;
     letter-spacing: 2px;
     transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-    
+    border: 3px solid #DCF6F3;
 }
 #book:hover{
+    padding-left:27px ;
+    padding-right: 27px;
+    border: 3px solid #1e5653;
+}
+#book:active{
+    background-color: #1e5653;
     padding-left:25px ;
     padding-right: 25px;
-    background-color: #1e5653;
 }
 .footer-home{
-    color: #0a212e;
-    background: linear-gradient(#DCF6F3 , #33918C);
+    font-weight: 100px;
+    font-size: large;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #003260;
+    background-color: #DCF6F3;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all ease-in-out 2s;
 }
 .footer-list{
     padding-left: 50px;
     padding-right: 50px;
-    padding-top: 10px;
+    padding-top: 20px;
     width: 70%;
-    font-size: 10px;
+    font-size: 15px;
     margin: 0px;
+    gap: 10px;
     display: flex;
     align-items: center;
     align-content: center;
@@ -192,7 +203,8 @@ color: white;
     justify-content: space-between;
 }
 .footer-div{
-    
+    text-decoration: none;
+    padding: 10px;
     font-size: 10px;
     width: 55%;
     display: flex;
