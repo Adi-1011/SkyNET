@@ -18,6 +18,7 @@
     font-size: x-small;
 }
 .search-area h1{
+    stroke: 2px solid black;
     color: white;
     transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -32,15 +33,13 @@
     background: linear-gradient(rgb(0, 107, 128), rgb(1, 209, 209));
     border:#04d9f1 2px solid;
     padding: 10px;
-    border-radius: 7px;
-    
-    border-radius: 20px;
+    border-radius: 12px;
     padding-left: 20px;
     padding-right: 20px;
 
 }
 .search-area #h2:hover{
-    border-radius: 20px;
+    border-radius: 12px;
     padding-left: 20px;
     padding-right: 20px;
     background: linear-gradient(rgb(0, 107, 128), rgb(1, 209, 209));
@@ -86,6 +85,9 @@ input::placeholder{
     margin: 10px;
     justify-content: left;
     padding-right: 80px;
+}
+.departure-return{
+    color-scheme: dark;
 }
 i{
     color:rgb(109, 207, 223);
