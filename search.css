@@ -17,6 +17,10 @@
     padding: 10px;
     font-size: x-small;
 }
+.logo-bg{
+    width: 460px;
+    height: 160px
+}
 .search-area h1{
     stroke: 2px solid black;
     color: white;
@@ -47,6 +51,7 @@
 }
 .source-box{
     border: 2px solid rgb(0, 170, 255);
+    border-color: linear-gradient(rgb(0, 170, 255), rgb(0, 255, 68));
     background-color: #102B3F;
     width: 500px;
     height: 10px;
@@ -83,12 +88,16 @@ input::placeholder{
     align-items: center;
     padding: 10px;
     margin: 10px;
-    justify-content: left;
-    padding-right: 80px;
+    padding-right: 75px;
 }
 .departure-return{
     color-scheme: dark;
 }
+/* #departure, #return{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+} */
 i{
     color:rgb(109, 207, 223);
 }
@@ -113,6 +122,7 @@ i{
     gap: 10px;
 }
 #search-submit{
+    cursor: pointer;
     font-family: hyperhelix;
     font-weight: bold;
     font-size: 12px;

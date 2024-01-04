@@ -15,7 +15,7 @@
         <ul class="navbar-list">
             <li>SEARCH</li>
             <li>DESTINATIONS</li>
-            <li>DEALS</li>
+            <li><a href="deals.html">DEALS</a></li>
             <li><a href="index.html">HOME</a></li>
             <a href="login.html" id="login">LOGIN</a>
             <a href="signin.html" id="signin">SIGN-IN</a>
@@ -26,6 +26,7 @@
             <h1 id="h1">One Way - Trip</h1>
             <h1 id="h2">Round - Trip</h1>
         </div>
+
         <div class="source-box">
             <i class="fa-solid fa-location-dot"></i>
             <input type="text"id="source-feild" placeholder="Enter Departure City">
@@ -35,12 +36,15 @@
             <input type="text"id="destination-feild" placeholder="Enter Arrival City">
         </div>
         <div class="departure-return">
+        <div id="departure">
         <div class="source-box" id="dep">
-    
             <input type = "date"id="departure-date" placeholder="Select Departure Date">
         </div>
+    </div>
+        <div id="return">
         <div class="source-box" id="return">
             <input type = "date"id="return-date" placeholder="Select Return Date">
+        </div>
         </div>
         </div>
         <div class="source-box" id="passengers">
@@ -52,8 +56,8 @@
                 <i class="fa-solid fa-tags"></i>
                 <input type = "text"id="promo" placeholder="Promo code">
             </div>
-            <a id="search-submit">TAKE_OFF</a>
-            </div>
+            <a id="search-submit">TAKE-OFF</a>
+        </div>
     </div>
     <footer class="footer-home">
         <h3 id="footerlogo"><b>SkyNET</b></h3>
@@ -70,4 +74,18 @@
         </div>
     </footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $("#h1").click(function(){
+            $("#return").remove();
+        })
+        $(".source-box").click(function(){
+            $(this).css("border", "3px solid rgb(0, 170, 255)")
+        })
+        $(".source-box").dblclick(function(){
+            $(this).css("border", "2px solid rgb(0, 170, 255)")
+        })
+    })
+</script>
 </html>
