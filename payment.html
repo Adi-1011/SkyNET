@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/0a9fc1dfce.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form signup">
+          <h2>Payment</h2>
+          <div class="inputBox">
+            <input type="text" required="required">
+            <i class="fa-regular fa-user"></i>
+            <span>Name on the Card</span>
+          </div>
+          <div class="inputBox">
+            <input type="text" required="required">
+            <i class="fa-regular fa-envelope"></i>
+            <span>email address</span>
+          </div>
+          <div class="inputBox">
+            <input type="text" required="required">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>credit/debit card number</span>
+          </div>
+          <div class="inputBox">
+            <input type="month" id="Expiry"required="required">
+            <i class="fa-solid fa-lock"></i>
+            <span>Card Expiry</span>
+          </div>
+          <div class="inputBox">
+            <input type="text" required="required">
+            <i class="fa-solid fa-lock"></i>
+            <span>CVV</span>
+          </div>
+          <div class="inputBox">
+            <a href="confirm.html">
+            <input type="submit" id="Checkout" value="Proceed to Checkout">
+        </a>
+          </div>
+          <p>Other payment modes  <a href="#" class="login">other</a></p>
+          <p>Cancel Payment  <a href="index.html" class="login">Home</a></p>
+        </div>
+        
+      </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $("#checkout").click(function(){
+            window.location.href="confirm.html";
+        });
+    });
+</script>
+</html>
+

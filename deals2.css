@@ -1,0 +1,61 @@
+@font-face {
+    font-family: brolink;
+    src: url(Brolink.otf);
+}
+@font-face {
+    font-family: hyperhelix;
+    src: url(hyper-helix.otf);
+}
+@font-face {
+    font-family: bruno;
+    src: url(BrunoAceSC-Regular.ttf);
+}
+@font-face {
+    font-family: changa;
+    src: url(Changa-Bold.ttf);
+}
+#logo{
+    font-size: x-large;
+    padding-left: 10px;
+    padding: 13px;
+    font-family: bruno;
+}
+#navbar-deals{
+    background-color: rgb(255, 0, 170);
+}
+.footer-home{
+    margin-top: 100px;
+    font-weight: 100px;
+    font-size: large;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background-color: #00282b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-list{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    width: 70%;
+    font-size: 15px;
+    margin: 0px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    list-style-type: none;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 50px;
+    justify-content: space-between;
+}
+.footer-div{
+    text-decoration: none;
+    padding: 10px;
+    font-size: 10px;
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+}
