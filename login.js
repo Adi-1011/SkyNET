@@ -4,9 +4,15 @@ function login() {
     var password = document.getElementById('pass').value;
     if (uname == "Aditya" && password == 'adi2002') {
         alert('Successfully Verified');
+        $('.input-submit').on('click', function(event) {
+            event.preventDefault(); 
+            var url = $(this).data('target');
+            location.replace('https://stackoverflow.com/questions/2238368/how-to-make-a-button-redirect-to-another-page-using-jquery-or-just-javascript');
+        });
         return true;
     } else {
         alert('Enter Your Details');
+        
         return false;
     }
 }
@@ -31,6 +37,8 @@ showPasswordIcon.addEventListener('click', function () {
 
 $("document").ready(function(){
     $(".input-submit").click(function(){
+
         login();
     })
+
 })

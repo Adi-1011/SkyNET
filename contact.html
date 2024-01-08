@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #007382;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 1em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(151, 213, 234, 0.393);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 2px solid rgb(0, 19, 39);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #0075d4;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #008697;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-options {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-options a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #00bcd4;
+    font-weight: bold;
+}
+#contact-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+    <div class="container">
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="contact-options">
+            <a href="tel:+123456789">Call us</a>
+            <a href="mailto:info@example.com">Email us</a>
+        </div>
+    </div>
+    <footer class="footer-home">
+        <h3 id="footerlogo"><b>SkyNET</b></h3>
+        <ul class="footer-list">
+            <li>Book Now</li>
+            <li>Special offers</li>
+            <li>Destinations</li>
+            <li>Customer Support</li>
+            <li>About Us</li>
+        </ul>
+        <div class="footer-div">
+            <p>© 2023 SkyNET. All rights reserved.</p>
+            <p style="text-decoration: underline;">Privacy Policy</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

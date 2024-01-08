@@ -1,0 +1,25 @@
+body{
+    animation: transitionin 0.8s;
+}
+div{
+    animation: slide-to-left 0.8s;
+}
+@keyframes transitionin {
+    from{
+        opacity: 0;
+        transform: rotate(-0.5deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+@keyframes slide-to-left{
+    from{
+        transform: translate(-4px);
+    }
+    to{
+        transform: translate(0px);
+    }
+}

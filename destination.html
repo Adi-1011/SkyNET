@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Flights</title>
+    <link rel="stylesheet" href="transition.css">
     <style>
         @font-face {
             font-family: brolink;
@@ -46,11 +47,11 @@
             justify-content: space-between;
         }
 
-        li:hover {
+        .navbar-list li:hover {
             border-radius: 5px;
             ;
-            padding: 10px;
-            background-color: #00326028;
+            padding: 13px;
+            background-color: #003260ba;
         }
 
         a:active li {
@@ -167,7 +168,7 @@
             padding: 20px;
             font-family: Arial, Helvetica, sans-serif;
             color: #befff5;
-            background: linear-gradient(rgba(0, 249, 228, 0), rgba(0, 23, 51, 0.632));
+            background: linear-gradient(rgba(9, 52, 48, 0.74), rgba(0, 23, 51, 0.632));
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -199,11 +200,11 @@
             justify-content: space-between;
         }
 
-        li:hover {
+        .navbarlist li:hover {
             border-radius: 5px;
             ;
             padding: 10px;
-            background-color: #00326028;
+            background-color: #0084ff;
             transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
@@ -230,9 +231,81 @@
             background-color: #33918C;
             border-radius: 5px;
             margin-top: 0px;
-            margin-bottom: 60px;
+            margin-bottom: 0px;
             padding: 30px;
         }
+        .link-list{
+            color: white;
+        }
+        .navbar2{
+            list-style-type: none;
+            padding: 20px;
+            background: linear-gradient(rgb(0, 62, 62), rgb(0, 17, 25));
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-bottom: 50px;;
+        }
+        #select-tag{
+            background-color: #02509a;
+            padding: 4px;
+            border: 1px solid white;
+            color: white;
+            width: 200px;
+            height: 40px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .select-tag select { 
+        /* for Firefox */ 
+        -moz-appearance: none; 
+        /* for Safari, Chrome, Opera */ 
+        -webkit-appearance: none; 
+      } 
+      .select-tag select::-ms-expand { 
+        display: none; 
+      } 
+        h1{
+            animation: slide-down 0.3s;
+        }
+        label{
+            font-weight: bold;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 50px;
+        }
+        #dropdown{
+            height: 200px;
+        }
+        .card-container a{
+            background-color:#15486593;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .card-container a:hover{
+            background-color:#154865;
+            padding: 8px;
+        }
+        .card-container{
+            margin-bottom: 50px;
+            background-color: #003260cc;
+            padding: 50px;
+            border-radius: 20px;
+        }
+        @keyframes slide-down {
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
     </style>
 </head>
 
@@ -243,13 +316,31 @@
         <ul class="navbar-list">
             <li><a href="search.html" class="link-list">SEARCH</a></li>
             <li><a href="contact.html" class="link-list">CONTACT</a></li>
-            <li><a href="deals2.html">DEALS</a></li>
-            <li><a href="index.html">HOME</a></li>
+            <li><a href="deals2.html"class="link-list">DEALS</a></li>
+            <li><a href="index.html"class="link-list">HOME</a></li>
             <a href="login.html" id="login">LOGIN</a>
             <a href="signin.html" id="signin">SIGN-IN</a>
         </ul>
     </nav>
     <h1 id="heading">AVAILABLE FLIGHTS FOR SEARCHED ROUTE</h1>
+    <div class="navbar2">
+        <li>
+
+            <select name="class" id="select-tag">
+              <option  id= "dropdown"value="select">Select</option>
+              <option id= "dropdown"value="economy">Economy</option>
+              <option id= "dropdown"value="business">Business</option>
+            </select></li>
+        <li> 
+           
+            <select name="citizen" id="select-tag">
+            <option id= "dropdown"value="Select">Select</option>
+            <option id= "dropdown"value="student">student</option>
+            <option id= "dropdown"value="Senior Citizen">Senior Citizen</option>
+            <option id= "dropdown"value="armed forces">Armed Forces</option>
+            <option id= "dropdown"value="Family">Family</option>
+          </select></li>
+    </div>
 
     <div class="card-container">
         <!-- Flight data will go here -->

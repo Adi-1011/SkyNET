@@ -8,6 +8,64 @@
     <script src="https://kit.fontawesome.com/0a9fc1dfce.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="transition.css">
+    <style>
+        img{
+        animation: slide-to-down 1.0s;
+        }
+        a, .navbar-list{
+            animation: slide-left 0.8s;
+        }
+        li{
+            animation: slide-down 0.8s;
+        }
+        h1{
+            animation: slide-left 1s;
+        }
+        h3{
+            animation: slide-left 1.5s;
+        }
+        p{
+            animation: slide-left 2s;
+        }
+        .btn-help{
+            animation: slide-left 3s;
+        }
+        @keyframes slide-to-down{
+    from{
+        opacity: 0.5;
+        transform: translateX(120px);
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+}
+@keyframes slide-left {
+    from{
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+}
+@keyframes slide-down {
+    from{
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+    </style>
 </head>
 
 <body>
