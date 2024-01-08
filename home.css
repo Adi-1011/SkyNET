@@ -19,20 +19,15 @@
     font-family: changa;
     src: url(Changa-Bold.ttf);
 }
-body, html{
+ body, html{
     background-color: #DCF6F3;
-    width:100%;
-    height: 100%;
-}
+    /* width:100%; */
+    /* height: 100%; */
+}/*
 *{
     margin: 0;
     padding: 0;
-}
-body, html{
-background-color: #DCF6F3;
-width:100%;
-height: 100%;
-}
+} */
 .navbar{
 font-family:brolink;
 font-size: small;
@@ -42,6 +37,14 @@ display: flex;
 
 align-items: center;
 justify-content: space-between;
+}
+li:hover{
+    border-radius: 5px;;
+    padding: 10px;
+    background-color: #00326028;
+}
+a:active li{
+    background-color: #00326058;
 }
 .navbar-list{
 color: #003260;
@@ -211,3 +214,109 @@ color: white;
     display: flex;
     justify-content: space-between;
 }
+
+/* help button */
+
+        .btn-help{
+            margin-bottom: 20px;
+            position: absolute;
+            left: 6%;
+            top: 80%;
+            width: 60px;
+            height: 60px;
+            background: #33918C;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.7s ease-in-out;
+        }
+        .btn-help:hover{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: white;
+            background: #003260;
+            border-radius: 15px;
+            width: 250px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+        .btn-help i{
+            position: absolute;
+        }
+        .btn-help:hover i{
+            opacity: 0;
+        }
+        .btn-help i{
+            font-size: 30px;
+            color: #000;
+        } 
+        .text-section{
+            opacity: 0;
+            padding: 20px;
+
+        }
+        .btn-help:hover .text-section{
+            animation: forwards fadeIn 0.7s 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        #faq{
+            border: 1px solid white;
+            color:#c3fffc;
+            background-color:rgb(0, 123, 151);
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-decoration: none ;
+        }
+        p{
+            margin-bottom: 25px;
+        }
+        #icon{
+            color: azure;
+        }
+        #login:hover{
+            color: white;
+            background-color: #33918C;
+        }
+        #signin:hover{
+            color: white;
+            background-color:#003260;
+        }
+        #login, #signin{
+            transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        #signin:active{
+            background-color: #00fff731;
+        }
+        .faq{
+            padding-top:30px ;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+            margin-top: 35px;
+            color:#DCF6F3;
+        }
+        .faq-head{
+            font-family: changa;
+            letter-spacing: 3px;
+            font-size: 40px;
+            padding: 5px;
+            color: #DCF6F3;
+        }
+        li:hover{
+            border-radius: 5px;;
+            padding: 10px;
+            background-color: #00326028;
+            transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }

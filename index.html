@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkyNET.com</title>
     <link rel="stylesheet" href="home.css">
+    <script src="https://kit.fontawesome.com/0a9fc1dfce.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <nav class="navbar">
@@ -23,13 +25,32 @@
         <div>
         <div class="hero-content">
             <h1>LOOKING</h1>
-            <h3><span>FOR </span> COMFORT<span id="questionmark">?</span></h3>
+            <h3><span>FOR </span>COMFORT<span id="questionmark">?</span></h3>
             <p>get onboard our luxurious network and fly to your dreams</p>
             <a href="search.html" id="book">BOOK NOW</a>
         </div>
         <img src="plane and clouds.png" alt="" class="plane-image">
         </div>
-        
+        <br>
+        <div class="btn-help">
+            <i class="fa-solid fa-question" id="icon"></i>
+            <div class = "text-section">
+                <h5>Have some queries ?</h5>
+                <br>
+                <p>
+                    Go to the FAQ page and look for the question you have in mind.
+                </p>
+                <a id="faq"href="faq.html" target="_blank">FAQ</a>
+            </div>
+        </div>
     </main>
 </body>
-</html>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+        $("body").mouseenter(function(){
+            $(".navbar").fadeIn(4000);
+        })
+    })
+  </script>
+</html> 

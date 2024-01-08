@@ -7,6 +7,9 @@
     height: 500px;
     padding: 100px;
     
+ a{
+    text-decoration: none;
+ }   
 }
 .trip{
     font-family: brolink;

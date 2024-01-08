@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="search.css">
 </head>
+
 <body>
     <nav class="navbar">
         <img src="logo-bg.png" alt="" class="logo-bg">
@@ -29,23 +31,23 @@
 
         <div class="source-box">
             <i class="fa-solid fa-location-dot"></i>
-            <input type="text"id="source-feild" placeholder="Enter Departure City">
+            <input type="text" id="source-feild" placeholder="Enter Departure City">
         </div>
         <div class="source-box">
             <i class="fa-solid fa-location-dot"></i>
-            <input type="text"id="destination-feild" placeholder="Enter Arrival City">
+            <input type="text" id="destination-feild" placeholder="Enter Arrival City">
         </div>
         <div class="departure-return">
-        <div id="departure">
-        <div class="source-box" id="dep">
-            <input type = "date"id="departure-date" placeholder="Select Departure Date">
-        </div>
-    </div>
-        <div id="return">
-        <div class="source-box" id="return">
-            <input type = "date"id="return-date" placeholder="Select Return Date">
-        </div>
-        </div>
+            <div id="departure">
+                <div class="source-box" id="dep">
+                    <input type="date" id="departure-date" placeholder="Select Departure Date">
+                </div>
+            </div>
+            <div id="return">
+                <div class="source-box" id="return">
+                    <input type="date" id="return-date" placeholder="Select Return Date">
+                </div>
+            </div>
         </div>
         <div class="source-box" id="passengers">
             <i class="fa-solid fa-person"></i>
@@ -54,9 +56,9 @@
         <div class="submit">
             <div class="promo-code">
                 <i class="fa-solid fa-tags"></i>
-                <input type = "text"id="promo" placeholder="Promo code">
+                <input type="text" id="promo" placeholder="Promo code">
             </div>
-            <a id="search-submit" href="payment.html">TAKE-OFF</a>
+            <a id="search-submit" href="destination.html" target="_blank">SEARCH</a>
         </div>
     </div>
     <footer class="footer-home">
@@ -74,18 +76,23 @@
         </div>
     </footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function(){
-        $("#h1").click(function(){
+    $(document).ready(function () {
+        $("#search-submit").click(function(){
+            alert('You are about to be redirected to a new page')
+        })
+        $("#h1").click(function () {
             $("#return").remove();
         })
-        $(".source-box").click(function(){
+        $(".source-box").click(function () {
             $(this).css("border", "3px solid rgb(0, 170, 255)")
         })
-        $(".source-box").dblclick(function(){
+        $(".source-box").dblclick(function () {
             $(this).css("border", "2px solid rgb(0, 170, 255)")
         })
     })
 </script>
+
 </html>
