@@ -6,8 +6,11 @@
     <title>SkyNET.com</title>
     <link rel="stylesheet" href="home.css">
     <style>
-        img{
+        .plane-image{
         animation: slide-to-down 1.5s;
+        }
+        .logo-bg{
+            animation: slide-to-up 1.5s;
         }
         a, .navbar-list{
             animation: slide-left 0.8s;
@@ -29,7 +32,7 @@
         }
         @keyframes slide-to-down{
     from{
-        opacity: 0.5;
+        opacity: 0.2;
         transform: translateX(120px);
         transform: translateY(10px);
     }
@@ -37,7 +40,17 @@
         opacity: 1;
         transform: translateX(0px);
     }
-
+    
+}
+@keyframes slide-to-up{
+    from{
+        opacity: 0.2;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 @keyframes slide-left {
     from{
