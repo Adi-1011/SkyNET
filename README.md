@@ -12,6 +12,6 @@ and uses a certain color pallete and design language that is created by the lead
 
 also this webiste is just for learning purpose and only displays flight data and is noot comercially functional or registered as it dosen;t have any backend database or not using any other..
 
-For further more details regarding this website please visit the website and find out about this incredibally generous website created be none other than "Aditya kumar 85", "Aditya kumar 86", "Aman kumar 93", "Gaurav Pandey".
+For further more details regarding this website please visit the website.
 
 Thank you.
