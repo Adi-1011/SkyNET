@@ -1,136 +1,627 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #223243;
-}
+    @font-face {
+      font-family: brolink;
+      src: url(Brolink.otf);
+    }
 
-.container {
-  padding: 40px;
-  border-radius: 20px;
-  border: 8px solid #223243;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.35),
-    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
-}
+    @font-face {
+      font-family: hyperhelix;
+      src: url(hyper-helix.otf);
+    }
 
-.container .form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 25px;
-}
+    @font-face {
+      font-family: bruno;
+      src: url(BrunoAceSC-Regular.ttf);
+    }
 
-.container .form.signin,
-.container.signinForm .form.signup {
-  display: none;
-}
+    @font-face {
+      font-family: changa;
+      src: url(Changa-Bold.ttf);
+    }
 
-.container.signinForm .form.signin {
-  display: flex;
-}
+    @font-face {
+      font-family: brolink;
+      src: url(Brolink.otf);
+    }
 
-.container .form h2 {
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-}
+    @font-face {
+      font-family: hyperhelix;
+      src: url(hyper-helix.otf);
+    }
 
-.container .form .inputBox {
-  position: relative;
-  width: 300px;
-}
+    body,
+    html {
+      background-color: #DCF6F3;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #003260;
+      min-height: 100vh;
+    }
 
-.container .form .inputBox input {
-  padding: 12px 10px 12px 48px;
-  border: none;
-  width: 100%;
-  background: #223243;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #fff;
-  font-weight: 300;
-  border-radius: 25px;
-  font-size: 1em;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
-  transition: 0.5s;
-  outline: none;
-}
+    /* Navbar */
+    .navbar {
+      font-family: brolink, Arial, sans-serif;
+      font-size: small;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      animation: slide-down 0.8s;
+    }
 
-.container .form .inputBox span {
-  position: absolute;
-  left: 0;
-  padding: 12px 10px 12px 48px;
-  pointer-events: none;
-  font-size: 1em;
-  font-weight: 300;
-  transition: 0.5s;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.5);
-}
+    .logo-section {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
 
-.container .form .inputBox input:valid ~ span,
-.container .form .inputBox input:focus ~ span {
-  color: #00dfc4;
-  border: 1px solid #00dfc4;
-  background: #223243;
-  transform: translateX(25px) translateY(-7px);
-  font-size: 0.6em;
-  padding: 0 8px;
-  border-radius: 10px;
-  letter-spacing: 0.1em;
-}
+    .logo-bg {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      z-index: 0;
+      width: 450px;
+      opacity: 0.3;
+    }
 
-.container .form .inputBox input:valid,
-.container .form .inputBox input:focus {
-  border: 1px solid #00dfc4;
-}
+    #logo {
+      width: 200px;
+      padding-left: 65px;
+      z-index: 1;
+      position: relative;
+    }
 
-.container .form .inputBox i {
-  position: absolute;
-  top: 15px;
-  left: 16px;
-  width: 25px;
-  padding: 2px 0;
-  padding-right: 8px;
-  color: #00dfc4;
-  border-right: 1px solid #00dfc4;
-}
+    .navbar-list {
+      color: #003260;
+      text-align: center;
+      padding: 10px;
+      padding-right: 0px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style-type: none;
+      align-items: center;
+      justify-content: space-evenly;
+      letter-spacing: 2px;
+    }
 
-.container .form .inputBox input[type="submit"] {
-  background: #00dfc4;
-  color: #223243;
-  padding: 10px 0;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.35),
-    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
-}
+    .navbar-list li {
+      text-align: center;
+      transition: all 0.3s;
+    }
 
-.container .form p {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.75em;
-  font-weight: 300;
-}
+    .navbar-list li:hover {
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #00326028;
+    }
 
-.container .form p a {
-  font-weight: 500;
-  color: #fff;
-}
-input[type=month]:required:invalid::-webkit-datetime-edit {
-  color: transparent;
-}
+    .navbar-list a {
+      text-decoration: none;
+      color: #0a212e;
+      padding: 10px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .navbar-list #login {
+      background-color: #003260;
+      color: white;
+      padding: 13px 20px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar-list #login:hover {
+      background-color: #33918C;
+    }
+
+    /* Main Container */
+    .payment-container {
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 30px;
+      animation: fade-in 1s;
+    }
+
+    /* Payment Form Section */
+    .payment-form-section {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 50, 96, 0.1);
+    }
+
+    .section-title {
+      font-family: changa, Arial, sans-serif;
+      font-size: 32px;
+      letter-spacing: 3px;
+      color: #003260;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .section-title i {
+      color: #33918C;
+    }
+
+    /* Progress Steps */
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .progress-steps::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #DCF6F3;
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #DCF6F3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #003260;
+      border: 3px solid #DCF6F3;
+    }
+
+    .step.active .step-circle {
+      background: #33918C;
+      color: white;
+      border-color: #33918C;
+    }
+
+    .step.completed .step-circle {
+      background: #003260;
+      color: white;
+      border-color: #003260;
+    }
+
+    .step-label {
+      font-size: 12px;
+      color: #003260;
+      font-family: hyperhelix, Arial, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #003260;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #DCF6F3;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s;
+      font-family: Arial, sans-serif;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #33918C;
+      box-shadow: 0 0 0 3px rgba(51, 145, 140, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-row-three {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 15px;
+    }
+
+    /* Card Preview */
+    .card-preview {
+      background: linear-gradient(135deg, #003260 0%, #33918C 100%);
+      padding: 30px;
+      border-radius: 15px;
+      color: white;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+      min-height: 200px;
+    }
+
+    .card-preview::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+
+    .card-chip {
+      width: 50px;
+      height: 40px;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .card-number {
+      font-size: 24px;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .card-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .card-holder,
+    .card-expiry {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .card-label {
+      font-size: 10px;
+      opacity: 0.8;
+      letter-spacing: 1px;
+    }
+
+    .card-value {
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+
+    /* Payment Methods */
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .payment-method {
+      padding: 20px;
+      border: 2px solid #DCF6F3;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: white;
+    }
+
+    .payment-method:hover {
+      border-color: #33918C;
+      transform: translateY(-2px);
+    }
+
+    .payment-method.active {
+      border-color: #33918C;
+      background: rgba(51, 145, 140, 0.05);
+    }
+
+    .payment-method i {
+      font-size: 30px;
+      color: #003260;
+      margin-bottom: 10px;
+    }
+
+    .payment-method span {
+      display: block;
+      font-size: 12px;
+      color: #003260;
+      letter-spacing: 1px;
+    }
+
+    /* Booking Summary */
+    .booking-summary {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 50, 96, 0.1);
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+    }
+
+    .summary-title {
+      font-family: changa, Arial, sans-serif;
+      font-size: 24px;
+      letter-spacing: 2px;
+      color: #003260;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #DCF6F3;
+    }
+
+    .flight-info {
+      margin-bottom: 25px;
+    }
+
+    .route {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .airport {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .airport-code {
+      font-size: 28px;
+      font-weight: bold;
+      color: #003260;
+      font-family: changa, Arial, sans-serif;
+    }
+
+    .airport-name {
+      font-size: 11px;
+      color: #33918C;
+      letter-spacing: 1px;
+    }
+
+    .route-icon {
+      color: #33918C;
+      font-size: 24px;
+    }
+
+    .flight-details {
+      background: #DCF6F3;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+
+    .detail-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      color: #003260;
+      opacity: 0.7;
+    }
+
+    .detail-value {
+      font-weight: 600;
+      color: #003260;
+    }
+
+    .price-breakdown {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 2px solid #DCF6F3;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .total-row {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid #003260;
+      font-size: 20px;
+      font-weight: bold;
+      color: #003260;
+      font-family: changa, Arial, sans-serif;
+      letter-spacing: 2px;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      background-color: #33918C;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-family: changa, Arial, sans-serif;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+      border: 3px solid transparent;
+      margin-top: 30px;
+    }
+
+    .submit-btn:hover {
+      background-color: #003260;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 50, 96, 0.2);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Security Badge */
+    .security-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px;
+      background: rgba(51, 145, 140, 0.1);
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    .security-badge i {
+      color: #33918C;
+      font-size: 20px;
+    }
+
+    /* Animations */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slide-down {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .payment-container {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-summary {
+        position: relative;
+        top: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .navbar-list {
+        width: 100%;
+        justify-content: center;
+      }
+
+      #logo {
+        padding-left: 0;
+        width: 150px;
+      }
+
+      .logo-bg {
+        display: none;
+      }
+
+      .payment-form-section,
+      .booking-summary {
+        padding: 25px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .form-row,
+      .form-row-three {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-methods {
+        grid-template-columns: 1fr;
+      }
+
+      .card-number {
+        font-size: 18px;
+      }
+
+      .progress-steps {
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+
+      .step-label {
+        font-size: 10px;
+      }
+    }
+
+    /* Error Messages */
+    .error-message {
+      color: #ff4444;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-group.error input {
+      border-color: #ff4444;
+    }
+
+    .form-group.error .error-message {
+      display: block;
+    }

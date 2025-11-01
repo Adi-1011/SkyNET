@@ -1,60 +1,217 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/0a9fc1dfce.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="payment.css">
-</head>
-<body>
-    <div class="container">
-        <div class="form signup">
-          <h2>Payment</h2>
-          <div class="inputBox">
-            <input type="text" required="required">
-            <i class="fa-regular fa-user"></i>
-            <span>Name on the Card</span>
-          </div>
-          <div class="inputBox">
-            <input type="text" required="required">
-            <i class="fa-regular fa-envelope"></i>
-            <span>email address</span>
-          </div>
-          <div class="inputBox">
-            <input type="text" required="required">
-            <i class="fa-solid fa-credit-card"></i>
-            <span>credit/debit card number</span>
-          </div>
-          <div class="inputBox">
-            <input type="month" id="Expiry"required="required">
-            <i class="fa-solid fa-lock"></i>
-            <span>Card Expiry</span>
-          </div>
-          <div class="inputBox">
-            <input type="text" required="required">
-            <i class="fa-solid fa-lock"></i>
-            <span>CVV</span>
-          </div>
-          <div class="inputBox">
-            <a href="confirm.html">
-            <input type="submit" id="Checkout" value="Proceed to Checkout">
-        </a>
-          </div>
-          <p>Other payment modes  <a href="#" class="login">other</a></p>
-          <p>Cancel Payment  <a href="index.html" class="login">Home</a></p>
-        </div>
-        
-      </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function(){
-        $("#checkout").click(function(){
-            window.location.href="confirm.html";
-        });
-    });
-</script>
-</html>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - SkyNET.com</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="payment.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-section">
+      <img src="SkyNET.png" alt="SkyNET" id="logo">
+    </div>
+    <ul class="navbar-list">
+      <li><a href="search.html" class="link-list">SEARCH</a></li>
+      <li><a href="contact.html" class="link-list">CONTACT</a></li>
+      <li><a href="deals2.html" class="link-list">DEALS</a></li>
+      <li><a href="index.html" class="link-list">HOME</a></li>
+      <a href="login.html" id="login">LOGIN</a>
+    </ul>
+  </nav>
+
+  <!-- Main Payment Container -->
+  <div class="payment-container">
+    <!-- Payment Form Section -->
+    <div class="payment-form-section">
+      <h1 class="section-title">
+        <i class="fas fa-credit-card"></i>
+        PAYMENT DETAILS
+      </h1>
+
+      <!-- Progress Steps -->
+      <div class="progress-steps">
+        <div class="step completed">
+          <div class="step-circle">1</div>
+          <span class="step-label">SEARCH</span>
+        </div>
+        <div class="step completed">
+          <div class="step-circle">2</div>
+          <span class="step-label">SELECT</span>
+        </div>
+        <div class="step completed">
+          <div class="step-circle">3</div>
+          <span class="step-label">DETAILS</span>
+        </div>
+        <div class="step active">
+          <div class="step-circle">4</div>
+          <span class="step-label">PAYMENT</span>
+        </div>
+      </div>
+
+      <!-- Payment Methods -->
+      <div class="payment-methods">
+        <div class="payment-method active" data-method="card">
+          <i class="fas fa-credit-card"></i>
+          <span>CARD</span>
+        </div>
+        <div class="payment-method" data-method="upi">
+          <i class="fab fa-google-pay"></i>
+          <span>UPI</span>
+        </div>
+        <div class="payment-method" data-method="wallet">
+          <i class="fas fa-wallet"></i>
+          <span>WALLET</span>
+        </div>
+      </div>
+
+      <!-- Card Preview -->
+      <div class="card-preview">
+        <div class="card-chip"></div>
+        <div class="card-number" id="cardDisplay">**** **** **** ****</div>
+        <div class="card-details">
+          <div class="card-holder">
+            <span class="card-label">CARD HOLDER</span>
+            <span class="card-value" id="nameDisplay">YOUR NAME</span>
+          </div>
+          <div class="card-expiry">
+            <span class="card-label">EXPIRES</span>
+            <span class="card-value" id="expiryDisplay">MM/YY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Form -->
+      <form id="paymentForm">
+        <div class="form-group">
+          <label for="cardName">CARDHOLDER NAME</label>
+          <input type="text" id="cardName" placeholder="John Doe" required>
+          <span class="error-message">Please enter a valid name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="cardNumber">CARD NUMBER</label>
+          <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+          <span class="error-message">Please enter a valid card number</span>
+        </div>
+
+        <div class="form-row-three">
+          <div class="form-group">
+            <label for="expiryDate">EXPIRY DATE</label>
+            <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+            <span class="error-message">Invalid date</span>
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+            <span class="error-message">Invalid CVV</span>
+          </div>
+          <div class="form-group">
+            <label for="zipCode">ZIP CODE</label>
+            <input type="text" id="zipCode" placeholder="12345" maxlength="6" required>
+            <span class="error-message">Invalid ZIP</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">EMAIL ADDRESS</label>
+            <input type="email" id="email" placeholder="john@example.com" required>
+            <span class="error-message">Please enter a valid email</span>
+          </div>
+          <div class="form-group">
+            <label for="phone">PHONE NUMBER</label>
+            <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+            <span class="error-message">Please enter a valid phone number</span>
+          </div>
+        </div>
+
+        <div class="security-badge">
+          <i class="fas fa-lock"></i>
+          <span>Your payment information is encrypted and secure</span>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          CONFIRM & PAY $549.99
+        </button>
+      </form>
+    </div>
+
+    <!-- Booking Summary -->
+    <div class="booking-summary">
+      <h2 class="summary-title">BOOKING SUMMARY</h2>
+
+      <div class="flight-info">
+        <div class="route">
+          <div class="airport">
+            <div class="airport-code">NYC</div>
+            <div class="airport-name">New York</div>
+          </div>
+          <i class="fas fa-plane route-icon"></i>
+          <div class="airport">
+            <div class="airport-code">LAX</div>
+            <div class="airport-name">Los Angeles</div>
+          </div>
+        </div>
+
+        <div class="flight-details">
+          <div class="detail-row">
+            <span class="detail-label">Date</span>
+            <span class="detail-value">Dec 15, 2024</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Departure</span>
+            <span class="detail-value">10:30 AM</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Arrival</span>
+            <span class="detail-value">01:45 PM</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Duration</span>
+            <span class="detail-value">5h 15m</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Flight</span>
+            <span class="detail-value">SN-4521</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Class</span>
+            <span class="detail-value">Economy</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Passengers</span>
+            <span class="detail-value">1 Adult</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-breakdown">
+        <div class="price-row">
+          <span>Base Fare</span>
+          <span>$449.99</span>
+        </div>
+        <div class="price-row">
+          <span>Taxes & Fees</span>
+          <span>$75.00</span>
+        </div>
+        <div class="price-row">
+          <span>Service Charge</span>
+          <span>$25.00</span>
+        </div>
+        <div class="price-row total-row">
+          <span>TOTAL</span>
+          <span>$549.99</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="payment.js"></script>
+</body>
+
+</html>
