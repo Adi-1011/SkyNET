@@ -1,69 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Flights</title>
-    <link rel="stylesheet" href="transition.css">
+    <title>Available Flights - SkyNET</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         @font-face {
             font-family: brolink;
             src: url(Brolink.otf);
         }
-
         @font-face {
             font-family: hyperhelix;
             src: url(hyper-helix.otf);
         }
-
-        @font-face {
-            font-family: bruno;
-            src: url(BrunoAceSC-Regular.ttf);
-        }
-
         @font-face {
             font-family: changa;
             src: url(Changa-Bold.ttf);
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('sunset.jpg') center/cover fixed no-repeat;
-            color: #333;
-            height: 100vh;
-            
+        body, html {
+            background: #0a1f2e;
+            background-image: 
+                radial-gradient(at 20% 30%, rgba(51, 145, 140, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(0, 50, 96, 0.2) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(220, 246, 243, 0.05) 0px, transparent 50%);
+            overflow-x: hidden;
+            min-height: 100vh;
+            font-family: hyperhelix, sans-serif;
+            animation: transitionin 0.8s;
         }
+
+        /* Navbar Styles */
         .navbar {
-            font-family: brolink;
+            font-family: brolink, sans-serif;
             font-size: small;
-            padding: 20px;
+            padding: 20px 40px;
             display: flex;
-            background: linear-gradient(rgb(2, 0, 97),rgb(0, 115, 181));
-            padding-bottom: 30px;
             align-items: center;
             justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(0, 50, 96, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(51, 145, 140, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: slide-left 0.8s;
         }
 
-        .navbar-list li:hover {
-            border-radius: 5px;
-            ;
-            padding: 13px;
-            background-color: #003260ba;
+        .logo-container {
+            position: relative;
+            z-index: 101;
         }
 
-        a:active li {
-            background-color: #00326058;
+        .logo-bg {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            z-index: -1;
+            width: 450px;
+            max-width: 100%;
+            opacity: 0.3;
+        }
+
+        #logo {
+            width: 200px;
+            max-width: 100%;
+            padding-left: 65px;
+            z-index: 1;
+            filter: brightness(0) invert(1);
         }
 
         .navbar-list {
-            color: #003260;
-            text-align: center;
+            color: white;
             padding: 10px;
-            padding-right: 0px;
-            width: 60%;
+            padding-right: 0;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -71,384 +89,874 @@
             align-items: center;
             justify-content: space-evenly;
             letter-spacing: 2px;
+            animation: slide-left 0.8s;
         }
 
         .navbar-list li {
-            text-align: center;
-            text-align: center;
+            animation: slide-down 0.8s;
         }
 
-        .link-list {
-            color: #0a212e;
-        }
-
-        #login:hover {
-            background-color: aqua;
+        .navbar-list li:hover {
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
         .navbar-list a {
             text-decoration: none;
-            text-align: center;
             padding: 10px;
-            padding-top: 10px;
             border-radius: 5px;
-            width: 130px;
-            height: 20px;
-            padding-top: 18px;
+            color: white;
+            display: inline-block;
+            transition: all 0.3s;
         }
 
         .navbar-list #login {
-            background-color: #003260;
+            background-color: rgba(255, 255, 255, 0.2);
             color: white;
+            padding: 10px 20px;
+            transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
         .navbar-list #signin {
             background-color: #33918C;
             color: white;
-        }
-
-        .logo-bg {
-
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -0.5;
-            width: 450px;
-        }
-
-        #logo {
-            width: 200px;
-            padding-left: 65px;
-            z-index: 1;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card {
-            -webkit-backdrop-filter: blur(30px);
-            width: 300px;
-            margin: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card-header {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .footer-home {
-            font-weight: 100px;
-            font-size: large;
-            padding: 20px;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #befff5;
-            background: linear-gradient(rgba(9, 52, 48, 0.74), rgba(0, 23, 51, 0.632));
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            -webkit-backdrop-filter: blur(50px);
-            backdrop-filter: blur(10px);
-        }
-
-        .footer-list {
-            padding-left: 50px;
-            padding-right: 50px;
-            padding-top: 20px;
-            width: 70%;
-            font-size: 15px;
-            margin: 0px;
-            gap: 10px;
-            display: flex;
-            align-items: center;
-            align-content: center;
-            list-style-type: none;
-            border-bottom: 1px solid #befff5;
-            padding-bottom: 50px;
-            justify-content: space-between;
-        }
-
-        .footer-div {
-            text-decoration: none;
-            padding: 10px;
-            font-size: 10px;
-            width: 55%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .navbarlist li:hover {
-            border-radius: 5px;
-            ;
-            padding: 10px;
-            background-color: #0084ff;
-            transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+            padding: 10px 20px;
+            transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
         #login:hover {
-            color: white;
             background-color: #33918C;
         }
 
         #signin:hover {
+            background-color: #1e5653;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 102;
+        }
+
+        .line {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .line:last-child {
+            background-color: red;
+        }
+
+        .hamburger.active .line:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .line:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(0, 50, 96, 0.95) 0%, rgba(51, 145, 140, 0.85) 100%);
+            backdrop-filter: blur(20px);
             color: white;
-            background-color: #003260;
-        }
-
-        #login,
-        #signin {
-            transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-        }
-
-        #signin:active {
-            background-color: #00fff731;
-        }
-        #heading{
             text-align: center;
-            background-color: #33918C;
-            border-radius: 5px;
-            margin-top: 0px;
-            margin-bottom: 0px;
-            padding: 30px;
+            padding: 50px 20px;
+            margin-bottom: 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: slide-down 0.5s;
+            position: relative;
+            overflow: hidden;
         }
-        .link-list{
-            color: white;
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
         }
-        .navbar2{
-            list-style-type: none;
-            padding: 20px;
-            background: linear-gradient(rgb(0, 62, 62), rgb(0, 17, 25));
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .page-header h1 {
+            font-family: changa, sans-serif;
+            font-size: clamp(24px, 5vw, 42px);
+            letter-spacing: 4px;
+            font-weight: lighter;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            font-family: hyperhelix, sans-serif;
+            font-size: clamp(13px, 1.5vw, 15px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-summary span {
             display: flex;
             align-items: center;
-            justify-content: space-evenly;
-            margin-bottom: 50px;;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
         }
-        #select-tag{
-            background-color: #02509a;
-            padding: 4px;
-            border: 1px solid white;
+
+        .search-summary span:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-summary i {
+            color: #DCF6F3;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: rgba(0, 50, 96, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 30px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(51, 145, 140, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: slide-to-left 0.8s;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            font-family: changa, sans-serif;
+            font-size: clamp(12px, 1.5vw, 14px);
+            color: #DCF6F3;
+            letter-spacing: 1px;
+        }
+
+        .filter-select {
+            background: rgba(51, 145, 140, 0.2);
+            border: 2px solid rgba(51, 145, 140, 0.5);
             color: white;
-            width: 200px;
-            height: 40px;
-            border-radius: 6px;
-            text-align: center;
+            padding: 14px 22px;
+            border-radius: 12px;
+            font-size: clamp(13px, 1.5vw, 15px);
+            font-family: hyperhelix, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23DCF6F3' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 45px;
+            backdrop-filter: blur(10px);
         }
-        .select-tag select { 
-        /* for Firefox */ 
-        -moz-appearance: none; 
-        /* for Safari, Chrome, Opera */ 
-        -webkit-appearance: none; 
-      } 
-      .select-tag select::-ms-expand { 
-        display: none; 
-      } 
-        h1{
-            animation: slide-down 0.3s;
+
+        .filter-select:hover {
+            border-color: #33918C;
+            background: rgba(51, 145, 140, 0.3);
+            box-shadow: 0 5px 20px rgba(51, 145, 140, 0.3);
+            transform: translateY(-2px);
         }
-        label{
-            font-weight: bold;
-            font-size: large;
-            font-family: Arial, Helvetica, sans-serif;
-            margin-left: 50px;
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #04d9f1;
+            box-shadow: 0 0 25px rgba(4, 217, 241, 0.5);
         }
-        #dropdown{
-            height: 200px;
-        }
-        .card-container a{
-            background-color:#15486593;
+
+        .filter-select option {
+            background-color: #003260;
+            color: white;
             padding: 10px;
+        }
+
+        /* Results Container */
+        .results-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            animation: slide-to-left 0.8s;
+        }
+
+        .results-header {
+            font-family: changa, sans-serif;
+            color: #DCF6F3;
+            font-size: clamp(20px, 2.5vw, 26px);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(4, 217, 241, 0.5);
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        /* Flight Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(51, 145, 140, 0.2);
+            animation: slide-to-left 0.8s;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #33918C, #04d9f1, #33918C);
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(51, 145, 140, 0.4);
+            border-color: #33918C;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, rgba(0, 50, 96, 0.9), rgba(51, 145, 140, 0.9));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: changa, sans-serif;
+            font-size: clamp(18px, 2vw, 22px);
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(51, 145, 140, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .card:hover .card-header::after {
+            width: 300%;
+            height: 300%;
+        }
+
+        .card-header i {
+            font-size: 22px;
+        }
+
+        .card-body {
+            padding: 28px;
+            color: #DCF6F3;
+            background: rgba(0, 50, 96, 0.3);
+        }
+
+        .card-body p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+            font-size: clamp(14px, 1.5vw, 16px);
+            font-family: hyperhelix, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .card-body p:hover {
+            transform: translateX(5px);
+            color: #04d9f1;
+        }
+
+        .card-body i {
+            color: #33918C;
+            font-size: 18px;
+            min-width: 22px;
+            filter: drop-shadow(0 0 8px rgba(51, 145, 140, 0.5));
+        }
+
+        .card-body strong {
+            font-family: changa, sans-serif;
+            min-width: 120px;
+            color: #04d9f1;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, rgba(51, 145, 140, 0.2), rgba(4, 217, 241, 0.2));
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            border: 1px solid rgba(51, 145, 140, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .price-section .price {
+            font-family: changa, sans-serif;
+            font-size: clamp(26px, 3.5vw, 32px);
+            color: #04d9f1;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(4, 217, 241, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-section .price-label {
+            font-size: clamp(12px, 1.2vw, 13px);
+            color: #33918C;
+            margin-top: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .book-btn {
+            background: linear-gradient(135deg, #33918C, #00a19a);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 5px;
+            padding: 16px 35px;
+            border-radius: 12px;
+            display: block;
+            text-align: center;
+            font-family: changa, sans-serif;
+            font-size: clamp(15px, 1.5vw, 17px);
+            letter-spacing: 3px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
-        .card-container a:hover{
-            background-color:#154865;
-            padding: 8px;
+
+        .book-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
         }
-        .card-container{
-            margin-bottom: 50px;
-            background-color: #0032609a;
-            padding: 50px;
-            border-radius: 20px;
-            backdrop-filter: blur(50px);
+
+        .book-btn:hover::before {
+            width: 300%;
+            height: 300%;
         }
+
+        .book-btn:hover {
+            background: linear-gradient(135deg, #1e5653, #14606c);
+            border-color: #04d9f1;
+            box-shadow: 0 8px 30px rgba(4, 217, 241, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .book-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 80px 20px;
+            color: #DCF6F3;
+            font-family: changa, sans-serif;
+            font-size: clamp(18px, 2vw, 24px);
+        }
+
+        .loading i {
+            font-size: 56px;
+            color: #33918C;
+            animation: spin 1s linear infinite;
+            filter: drop-shadow(0 0 20px rgba(51, 145, 140, 0.8));
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 100px 20px;
+            color: #DCF6F3;
+        }
+
+        .no-results i {
+            font-size: 72px;
+            color: #33918C;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 20px rgba(51, 145, 140, 0.6));
+        }
+
+        .no-results h2 {
+            font-family: changa, sans-serif;
+            font-size: clamp(22px, 3vw, 32px);
+            margin-bottom: 18px;
+            letter-spacing: 3px;
+        }
+
+        .no-results p {
+            font-family: hyperhelix, sans-serif;
+            font-size: clamp(14px, 1.5vw, 16px);
+            color: #33918C;
+            margin-bottom: 35px;
+        }
+
+        .no-results a {
+            background: linear-gradient(135deg, #33918C, #00a19a);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: changa, sans-serif;
+            letter-spacing: 3px;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+        }
+
+        .no-results a:hover {
+            background: linear-gradient(135deg, #1e5653, #14606c);
+            box-shadow: 0 8px 30px rgba(51, 145, 140, 0.5);
+            transform: translateY(-3px);
+            border-color: #04d9f1;
+        }
+
+        /* Footer */
+        .footer-home {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #DCF6F3;
+            background: rgba(0, 50, 96, 0.8);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(51, 145, 140, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px 25px;
+            margin-top: 80px;
+        }
+
+        #footerlogo {
+            font-family: brolink, sans-serif;
+            font-size: 28px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: #DCF6F3;
+        }
+
+        .footer-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            list-style-type: none;
+            padding: 20px 0;
+            border-bottom: 1px solid #DCF6F3;
+            width: 80%;
+            max-width: 900px;
+            margin-bottom: 20px;
+        }
+
+        .footer-list li {
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .footer-list li:hover {
+            color: #33918C;
+        }
+
+        .footer-div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            font-size: 12px;
+        }
+
+        .footer-div p:last-child {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes transitionin {
+            from {
+                opacity: 0;
+                transform: rotate(-0.5deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0);
+            }
+        }
+
+        @keyframes slide-to-left {
+            from {
+                transform: translateX(-4px);
+                opacity: 0.5;
+            }
+            to {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-left {
+            from {
+                opacity: 0;
+                transform: translateX(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         @keyframes slide-down {
-    from{
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-}
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo-bg {
+                width: 300px;
+            }
+
+            #logo {
+                width: 150px;
+                padding-left: 40px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .navbar-list {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background-color: #003260;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 80px;
+                gap: 20px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+                transition: right 0.4s ease-in-out;
+            }
+
+            .navbar-list.show {
+                right: 0;
+            }
+
+            .navbar-list li {
+                width: 80%;
+                text-align: center;
+            }
+
+            .navbar-list a {
+                display: block;
+                width: 100%;
+            }
+
+            .filter-section {
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .card-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-bg {
+                width: 250px;
+            }
+
+            #logo {
+                width: 120px;
+                padding-left: 30px;
+            }
+
+            .page-header {
+                padding: 25px 15px;
+            }
+
+            .search-summary {
+                gap: 15px;
+            }
+
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 20px 15px;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+
+            .footer-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                width: 90%;
+            }
+
+            .results-container {
+                padding: 30px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px;
+            }
+
+            .logo-bg {
+                width: 180px;
+                top: -10px;
+                left: -10px;
+            }
+
+            #logo {
+                width: 90px;
+                padding-left: 15px;
+            }
+
+            .page-header {
+                padding: 20px 10px;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .book-btn {
+                padding: 12px 20px;
+            }
+
+            .filter-select {
+                min-width: unset;
+            }
+        }
     </style>
 </head>
-
 <body>
     <nav class="navbar">
-        <img src="logo-bg.png" alt="" class="logo-bg">
-        <img src="SkyNET.png" alt="SkyNET" id="logo">
-        <ul class="navbar-list">
+        <div class="logo-container">
+            <!-- <img src="logo-bg.png" alt="" class="logo-bg"> -->
+            <img src="SkyNET.png" alt="SkyNET" id="logo">
+        </div>
+        
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+
+        <ul class="navbar-list" id="navList">
             <li><a href="search.html" class="link-list">SEARCH</a></li>
             <li><a href="contact.html" class="link-list">CONTACT</a></li>
-            <li><a href="deals2.html"class="link-list">DEALS</a></li>
-            <li><a href="index.html"class="link-list">HOME</a></li>
+            <li><a href="deals2.html" class="link-list">DEALS</a></li>
+            <li><a href="index.html" class="link-list">HOME</a></li>
             <a href="login.html" id="login">LOGIN</a>
-            <a href="signin.html" id="signin">SIGN-IN</a>
+            <a href="register.html" id="signin">SIGN-IN</a>
         </ul>
     </nav>
-    <h1 id="heading">AVAILABLE FLIGHTS FOR SEARCHED ROUTE</h1>
-    <div class="navbar2">
-        <li>
 
-            <select name="class" id="select-tag">
-              <option  id= "dropdown"value="select">Select</option>
-              <option id= "dropdown"value="economy">Economy</option>
-              <option id= "dropdown"value="business">Business</option>
-            </select></li>
-        <li> 
-           
-            <select name="citizen" id="select-tag">
-            <option id= "dropdown"value="Select">Select</option>
-            <option id= "dropdown"value="student">student</option>
-            <option id= "dropdown"value="Senior Citizen">Senior Citizen</option>
-            <option id= "dropdown"value="armed forces">Armed Forces</option>
-            <option id= "dropdown"value="Family">Family</option>
-          </select></li>
-    </div>
-
-    <div class="card-container">
-        <!-- Flight data will go here -->
-        <div class="card">
-            <div class="card-header">FL123</div>
-            <div class="card-body">
-                <p>Departure Airport: Departure Airport 1</p>
-                <p>Arrival Airport: Arrival Airport 1</p>
-                <p>Date: 2024-01-08</p>
-                <p>Time: 12:00 PM</p>
-                <a href="payment.html">BOOK</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">FL456</div>
-            <div class="card-body">
-                <p>Departure Airport: Departure Airport 2</p>
-                <p>Arrival Airport: Arrival Airport 2</p>
-                <p>Date: 2024-01-08</p>
-                <p>Time: 03:30 PM</p>
-                <a href="payment.html">BOOK</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">FL456</div>
-            <div class="card-body">
-                <p>Departure Airport: Departure Airport 2</p>
-                <p>Arrival Airport: Arrival Airport 2</p>
-                <p>Date: 2024-01-08</p>
-                <p>Time: 03:30 PM</p>
-                <a href="payment.html">BOOK</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">FL456</div>
-            <div class="card-body">
-                <p>Departure Airport: Departure Airport 2</p>
-                <p>Arrival Airport: Arrival Airport 2</p>
-                <p>Date: 2024-01-08</p>
-                <p>Time: 03:30 PM</p>
-                <a href="payment.html">BOOK</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">FL456</div>
-            <div class="card-body">
-                <p>Departure Airport: Departure Airport 2</p>
-                <p>Arrival Airport: Arrival Airport 2</p>
-                <p>Date: 2024-01-08</p>
-                <p>Time: 03:30 PM</p>
-                <a href="payment.html">BOOK</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">FL456</div>
-            <div class="card-body">
-                <p>Departure Airport: Departure Airport 2</p>
-                <p>Arrival Airport: Arrival Airport 2</p>
-                <p>Date: 2024-01-08</p>
-                <p>Time: 03:30 PM</p>
-                <a href="payment.html">BOOK</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">FL456</div>
-            <div class="card-body">
-                <p>Departure Airport: Departure Airport 2</p>
-                <p>Arrival Airport: Arrival Airport 2</p>
-                <p>Date: 2024-01-08</p>
-                <p>Time: 03:30 PM</p>
-                <a href="payment.html">BOOK</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">FL456</div>
-            <div class="card-body">
-                <p>Departure Airport: Departure Airport 2</p>
-                <p>Arrival Airport: Arrival Airport 2</p>
-                <p>Date: 2024-01-08</p>
-                <p>Time: 03:30 PM</p>
-                <a href="payment.html">BOOK</a>
-            </div>
+    <div class="page-header">
+        <h1>AVAILABLE FLIGHTS FOR YOUR ROUTE</h1>
+        <div class="search-summary" id="searchSummary">
+            <span><i class="fa-solid fa-plane-departure"></i> <span id="fromCity">Loading...</span></span>
+            <span><i class="fa-solid fa-arrow-right"></i></span>
+            <span><i class="fa-solid fa-plane-arrival"></i> <span id="toCity">Loading...</span></span>
+            <span><i class="fa-solid fa-calendar"></i> <span id="travelDate">Loading...</span></span>
+            <span><i class="fa-solid fa-users"></i> <span id="passengers">Loading...</span></span>
         </div>
     </div>
+
+    <div class="filter-section">
+        <div class="filter-group">
+            <label for="classFilter">CLASS</label>
+            <select id="classFilter" class="filter-select" onchange="filterFlights()">
+                <option value="all">All Classes</option>
+                <option value="economy">Economy</option>
+                <option value="business">Business</option>
+                <option value="first">First Class</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="categoryFilter">CATEGORY</label>
+            <select id="categoryFilter" class="filter-select" onchange="filterFlights()">
+                <option value="all">All Categories</option>
+                <option value="student">Student</option>
+                <option value="senior">Senior Citizen</option>
+                <option value="armed">Armed Forces</option>
+                <option value="family">Family</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="sortFilter">SORT BY</label>
+            <select id="sortFilter" class="filter-select" onchange="filterFlights()">
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="departure">Departure Time</option>
+                <option value="duration">Duration</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="results-container">
+        <div class="loading" id="loadingState">
+            <i class="fa-solid fa-spinner"></i>
+            <p>Searching for best flights...</p>
+        </div>
+        
+        <div class="card-container" id="flightCards" style="display: none;">
+            <!-- Flight cards will be dynamically inserted here -->
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fa-solid fa-plane-slash"></i>
+            <h2>NO FLIGHTS FOUND</h2>
+            <p>We couldn't find any flights matching your search criteria.</p>
+            <a href="search.html">Search Again</a>
+        </div>
+    </div>
+
     <footer class="footer-home">
         <h3 id="footerlogo"><b>SkyNET</b></h3>
         <ul class="footer-list">
             <li>Book Now</li>
-            <li>Special offers</li>
+            <li>Special Offers</li>
             <li>Destinations</li>
             <li>Customer Support</li>
             <li>About Us</li>
         </ul>
         <div class="footer-div">
-            <p>© 2023 SkyNET. All rights reserved.</p>
-            <p style="text-decoration: underline;">Privacy Policy</p>
+            <p>© 2025 SkyNET. All rights reserved.</p>
+            <p>Privacy Policy</p>
         </div>
     </footer>
-</body>
 
-</html>
+    <script src="destination.js"></script>
+
+
+    </body>
+    </html>

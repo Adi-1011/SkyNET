@@ -1,138 +1,756 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Flight Deals</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="deals2.css">
-
-    <!-- Custom styles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Deals - SkyNET</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Add your custom styles here */
-        body {
-            padding-top: 56px;
-            background-image: url('cloud-bg.mp4');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: brolink;
+            src: url(Brolink.otf);
+        }
+        @font-face {
+            font-family: hyperhelix;
+            src: url(hyper-helix.otf);
+        }
+        @font-face {
+            font-family: changa;
+            src: url(Changa-Bold.ttf);
+        }
+        @font-face {
+            font-family: bruno;
+            src: url(BrunoAceSC-Regular.ttf);
+        }
+
+        body, html {
+            background: #0a1f2e;
+            background-image: 
+                radial-gradient(at 20% 30%, rgba(51, 145, 140, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(0, 50, 96, 0.2) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(220, 246, 243, 0.05) 0px, transparent 50%);
+            overflow-x: hidden;
+            min-height: 100vh;
+            font-family: hyperhelix, sans-serif;
+            animation: transitionin 0.8s;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            font-family: brolink, sans-serif;
+            font-size: small;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(0, 50, 96, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(51, 145, 140, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: slide-down 0.8s;
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 101;
+        }
+
+        #logo {
+            width: 200px;
+            max-width: 100%;
+            padding-left: 65px;
+            z-index: 1;
+            filter: brightness(0) invert(1);
+        }
+
+        .navbar-list {
+            color: white;
+            padding: 10px;
+            padding-right: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style-type: none;
+            align-items: center;
+            justify-content: space-evenly;
+            letter-spacing: 2px;
+        }
+
+        .navbar-list li:hover {
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .navbar-list a {
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .navbar-list #login {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .navbar-list #signin {
+            background-color: #33918C;
+            color: white;
+            padding: 10px 20px;
+            transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        #login:hover {
+            background-color: #33918C;
+        }
+
+        #signin:hover {
+            background-color: #1e5653;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 102;
+        }
+
+        .line {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .line:last-child {
+            background-color: red;
+        }
+
+        .hamburger.active .line:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .line:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Carousel Section */
+        .carousel-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            animation: slide-to-left 0.8s;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide.active {
+            display: block;
+            animation: fadeIn 0.8s;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .carousel-btn {
+            background: rgba(51, 145, 140, 0.8);
+            border: none;
+            color: white;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(51, 145, 140, 1);
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(51, 145, 140, 0.5);
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #33918C;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        /* Deals Section */
+        .deals-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .deals-header {
+            font-family: changa, sans-serif;
+            color: #DCF6F3;
+            font-size: clamp(28px, 4vw, 42px);
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(4, 217, 241, 0.5);
+            animation: slide-down 0.8s;
+        }
+
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            animation: slide-to-left 0.8s;
+        }
+
+        .deal-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(51, 145, 140, 0.2);
+            position: relative;
+        }
+
+        .deal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #33918C, #04d9f1, #33918C);
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .deal-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .deal-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(51, 145, 140, 0.4);
+            border-color: #33918C;
+        }
+
+        .deal-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .deal-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .deal-card-body {
+            padding: 25px;
+            background: rgba(0, 50, 96, 0.3);
+        }
+
+        .deal-card-title {
+            font-family: changa, sans-serif;
+            color: #DCF6F3;
+            font-size: clamp(20px, 2.5vw, 24px);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .deal-card-text {
+            font-family: hyperhelix, sans-serif;
+            color: #33918C;
+            font-size: clamp(14px, 1.5vw, 16px);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .deal-btn {
+            background: linear-gradient(135deg, #33918C, #00a19a);
+            color: white;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            display: inline-block;
+            font-family: changa, sans-serif;
+            font-size: clamp(14px, 1.5vw, 16px);
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deal-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 0;
+        }
+
+        .deal-btn:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .deal-btn:hover {
+            background: linear-gradient(135deg, #1e5653, #14606c);
+            border-color: #04d9f1;
+            box-shadow: 0 8px 30px rgba(4, 217, 241, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .deal-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Footer */
+        .footer-home {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #DCF6F3;
+            background: rgba(0, 50, 96, 0.8);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(51, 145, 140, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px 25px;
+            margin-top: 80px;
+        }
+
+        #footerlogo {
+            font-family: brolink, sans-serif;
+            font-size: 28px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: #DCF6F3;
+        }
+
+        .footer-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            list-style-type: none;
+            padding: 20px 0;
+            border-bottom: 1px solid #DCF6F3;
+            width: 80%;
+            max-width: 900px;
+            margin-bottom: 20px;
+        }
+
+        .footer-list li {
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .footer-list li:hover {
+            color: #33918C;
+        }
+
+        .footer-div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            font-size: 12px;
+        }
+
+        .footer-div p:last-child {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes transitionin {
+            from {
+                opacity: 0;
+                transform: rotate(-0.5deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0);
+            }
+        }
+
+        @keyframes slide-to-left {
+            from {
+                transform: translateX(-4px);
+                opacity: 0.5;
+            }
+            to {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-down {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            #logo {
+                width: 150px;
+                padding-left: 40px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .navbar-list {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background-color: #003260;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 80px;
+                gap: 20px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+                transition: right 0.4s ease-in-out;
+            }
+
+            .navbar-list.show {
+                right: 0;
+            }
+
+            .navbar-list li {
+                width: 80%;
+                text-align: center;
+            }
+
+            .carousel {
+                height: 350px;
+            }
+
+            .deals-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #logo {
+                width: 120px;
+                padding-left: 30px;
+            }
+
+            .carousel {
+                height: 280px;
+            }
+
+            .carousel-container {
+                margin: 20px 10px;
+            }
+
+            .deals-section {
+                padding: 0 15px;
+            }
+
+            .footer-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px;
+            }
+
+            #logo {
+                width: 90px;
+                padding-left: 15px;
+            }
+
+            .carousel {
+                height: 220px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .deals-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-    <!-- <link rel="stylesheet" href="transition.css"> -->
 </head>
-
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar-deals">
-        <a class="navbar-brand" id="logo" href="#">Flight Deals</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="deals2.html">Deals</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.html">Sign-up</a>
-                </li>
-            </ul>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="SkyNET.png" alt="SkyNET" id="logo">
         </div>
+        
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+
+        <ul class="navbar-list" id="navList">
+            <li><a href="search.html" class="link-list">SEARCH</a></li>
+            <li><a href="contact.html" class="link-list">CONTACT</a></li>
+            <li><a href="deals2.html" class="link-list">DEALS</a></li>
+            <li><a href="index.html" class="link-list">HOME</a></li>
+            <a href="login.html" id="login">LOGIN</a>
+            <a href="register.html" id="signin">SIGN-IN</a>
+        </ul>
     </nav>
 
-    <!-- Carousel -->
-    <div id="carouselExample" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="deal-1.png" class="d-block w-100" alt="Slide 1">
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-slide active">
+                <img src="deal-1.png" alt="Special Deal 1">
             </div>
-            <div class="carousel-item">
-                <img src="deal-2.png" class="d-block w-100" alt="Slide 2">
+            <div class="carousel-slide">
+                <img src="deal-2.png" alt="Special Deal 2">
             </div>
-            <div class="carousel-item">
-                <img src="deal-3.jpg" class="d-block w-100" alt="Slide 3">
+            <div class="carousel-slide">
+                <img src="deal-3.jpg" alt="Special Deal 3">
+            </div>
+
+            <div class="carousel-controls">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="currentSlide(0)"></span>
+                <span class="indicator" onclick="currentSlide(1)"></span>
+                <span class="indicator" onclick="currentSlide(2)"></span>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
     </div>
 
-    <!-- Deals Section with Bootstrap Cards -->
-    <div class="container mt-5">
-        <h2>Featured Flight Deals</h2>
-        <div class="row mt-4">
-            <!-- Example Card 1 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="jammu.jpg" class="card-img-top" alt="Deal 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Trip to Jammu</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="search.html" class="btn btn-primary">Book Now</a>
-                    </div>
+    <!-- Deals Section -->
+    <div class="deals-section">
+        <h2 class="deals-header">FEATURED FLIGHT DEALS</h2>
+        <div class="deals-grid">
+            <div class="deal-card">
+                <img src="jammu.jpg" alt="Jammu Deal">
+                <div class="deal-card-body">
+                    <h3 class="deal-card-title">Trip to Jammu</h3>
+                    <p class="deal-card-text">Experience the beauty of Kashmir's gateway. Explore ancient temples, scenic landscapes, and rich cultural heritage.</p>
+                    <a href="search.html" class="deal-btn">BOOK NOW</a>
                 </div>
             </div>
-            <!-- Example Card 2 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="katra.jpg" class="card-img-top" alt="Deal 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Trip to Katra</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="search.html" class="btn btn-primary">Book Now</a>
-                    </div>
+
+            <div class="deal-card">
+                <img src="katra.jpg" alt="Katra Deal">
+                <div class="deal-card-body">
+                    <h3 class="deal-card-title">Trip to Katra</h3>
+                    <p class="deal-card-text">Visit the holy shrine of Vaishno Devi. A spiritual journey through the beautiful mountains of Jammu & Kashmir.</p>
+                    <a href="search.html" class="deal-btn">BOOK NOW</a>
                 </div>
             </div>
-            <!-- Example Card 3 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="sikkim.jpg" class="card-img-top" alt="Deal 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Trip to Sikkim</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="search.html" class="btn btn-primary">Book Now</a>
-                    </div>
+
+            <div class="deal-card">
+                <img src="sikkim.jpg" alt="Sikkim Deal">
+                <div class="deal-card-body">
+                    <h3 class="deal-card-title">Trip to Sikkim</h3>
+                    <p class="deal-card-text">Discover the mystical beauty of Sikkim. From snow-capped mountains to serene monasteries and vibrant culture.</p>
+                    <a href="search.html" class="deal-btn">BOOK NOW</a>
                 </div>
             </div>
         </div>
     </div>
+
     <footer class="footer-home">
         <h3 id="footerlogo"><b>SkyNET</b></h3>
         <ul class="footer-list">
             <li>Book Now</li>
-            <li>Special offers</li>
+            <li>Special Offers</li>
             <li>Destinations</li>
             <li>Customer Support</li>
             <li>About Us</li>
         </ul>
         <div class="footer-div">
-            <p>© 2023 SkyNET. All rights reserved.</p>
-            <p style="text-decoration: underline;">Privacy Policy</p>
+            <p>© 2025 SkyNET. All rights reserved.</p>
+            <p>Privacy Policy</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navList = document.getElementById('navList');
 
+        if (hamburger && navList) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navList.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navList.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navList.classList.remove('show');
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 991 && navList.classList.contains('show')) {
+                    navList.classList.remove('show');
+                    hamburger.classList.remove('active');
+                }
+            });
+        }
+
+        // Carousel functionality
+        let currentSlideIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.indicator');
+
+            if (index >= slides.length) currentSlideIndex = 0;
+            if (index < 0) currentSlideIndex = slides.length - 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            slides[currentSlideIndex].classList.add('active');
+            indicators[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
 </body>
-
 </html>

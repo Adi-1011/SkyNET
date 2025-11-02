@@ -76,7 +76,20 @@
 }
     </style>
     
-    
+    <script>
+  // Check screen width on first load
+  if (window.innerWidth < 992) {
+    window.location.href = "index-mobile.html";
+  }
+
+  // Also listen for resize events
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 992) {
+      window.location.href = "index-mobile.html";
+    }
+  });
+</script>
+
 </head>
 <body>
     <nav class="navbar">
