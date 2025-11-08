@@ -56,7 +56,7 @@
             max-width: 100%;
             padding-left: 65px;
             z-index: 1;
-            animation: slide-to-down 1.0s;
+            filter: brightness(0) invert(0);
         }
 
         .navbar-list {
@@ -79,7 +79,6 @@
 
         .navbar-list li:hover {
             border-radius: 5px;
-            padding: 10px;
             background-color: #00326028;
             transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
         }

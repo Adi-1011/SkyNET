@@ -71,12 +71,13 @@
       opacity: 0.3;
     }
 
-    #logo {
-      width: 200px;
-      padding-left: 65px;
-      z-index: 1;
-      position: relative;
-    }
+#logo {
+            width: 200px;
+            max-width: 100%;
+            padding-left: 65px;
+            z-index: 1;
+            filter: brightness(0) invert(0);
+        } 
 
     .navbar-list {
       color: #003260;
@@ -99,7 +100,6 @@
 
     .navbar-list li:hover {
       border-radius: 5px;
-      padding: 10px;
       background-color: #00326028;
     }
 
